@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public abstract class Flower {
 
     protected String name;
@@ -15,4 +17,16 @@ public abstract class Flower {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Flower flower = (Flower) o;
+        return Objects.equals(name, flower.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(name);
+    }
 }
